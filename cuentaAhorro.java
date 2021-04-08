@@ -47,8 +47,7 @@ public class cuentaAhorro extends Cuenta {
         if(transacciones.size()>0){
            System.out.println("Las transacciones de las cuentas fueron las siguientes: ");
            //se iteran todas las transacciones que se encuentran en el array se van mostrando 
-           for (Iterator<Transaccion> it = transacciones.iterator(); it.hasNext();) {
-                Transaccion transaccion = it.next();
+           for (Transaccion transaccion: transacciones){
                 transaccion.mostrar();
             }
            System.out.println("");

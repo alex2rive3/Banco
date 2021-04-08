@@ -10,13 +10,15 @@ package banco;
  * @author Alex
  */
 public abstract class Transaccion {
+
     protected double monto;
 
     public Transaccion(double monto) {
         super();
         this.monto = monto;
     }
-    
+
     public abstract double getMonto();
+
     public abstract void mostrar();
 }

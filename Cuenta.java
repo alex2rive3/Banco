@@ -10,6 +10,7 @@ package banco;
  * @author Alex
  */
 public abstract class Cuenta {
+
     private String Ncuenta;
     private String cliente;
     private double monto;
@@ -44,7 +45,8 @@ public abstract class Cuenta {
     public void setMonto(double monto) {
         this.monto = monto;
     }
-    
+
     public abstract void agregarTransaccion(Transaccion transaccion);
+
     public abstract void mostrarEstodoCuentas();
 }

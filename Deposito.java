@@ -9,7 +9,7 @@ package banco;
  *
  * @author Alex
  */
-public class Deposito extends Transaccion{
+public class Deposito extends Transaccion {
 
     public Deposito(double monto) {
         super(monto);
@@ -22,7 +22,7 @@ public class Deposito extends Transaccion{
 
     @Override
     public void mostrar() {
-        System.out.print("Se Deposito en la Cuenta "+getMonto()+"$");
+        System.out.print("Se Deposito en la Cuenta " + getMonto() + "$");
     }
-    
+
 }

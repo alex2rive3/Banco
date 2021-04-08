@@ -9,12 +9,12 @@ package banco;
  *
  * @author Alex
  */
-public class Extraccion extends Transaccion{
+public class Extraccion extends Transaccion {
 
     public Extraccion(double monto) {
         super(monto);
     }
-    
+
     @Override
     public double getMonto() {
         return monto;
@@ -22,7 +22,7 @@ public class Extraccion extends Transaccion{
 
     @Override
     public void mostrar() {
-        System.out.print("Se Extrajo de la Cuenta "+getMonto()+"$");
+        System.out.print("Se Extrajo de la Cuenta " + getMonto() + "$");
     }
-    
+
 }

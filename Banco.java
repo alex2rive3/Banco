@@ -20,25 +20,25 @@ public class Banco {
     static Scanner leer;
     private static String NCuenta = "";
     private static double saldoInicial = 0;
-    private static String cuenta ="";
+    private static String cuenta = "";
     static ArrayList<Cuenta> cuentas = new ArrayList<>();
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        Menu();
     }
 
-    public static void Menu(){
+    public static void Menu() {
         int opcion;
         System.out.println("Bienvenido al Banco de sus Sueños");
-        do{
+        do {
             System.out.println("Seleccione la Opcionde la operacion que decea realizar");
-            System.out.println("1. Crear Una Cuenta"+
-                             "\n2. Consultar Cuenta"+
-                             "\n3. Realizar Transaccion"+
-                             "\n0. Salir");
+            System.out.println("1. Crear Una Cuenta"
+                    + "\n2. Consultar Cuenta"
+                    + "\n3. Realizar Transaccion"
+                    + "\n0. Salir");
             leer = new Scanner(System.in);
             opcion = Integer.parseInt(leer.nextLine());
-            switch(opcion){
+            switch (opcion) {
                 case 1:
                     crearCuenta();
                     break;
@@ -55,54 +55,49 @@ public class Banco {
                     System.out.println("Opcion Invalida, intente nuevamente");
                     break;
             }
-        }while(opcion != 0);
+        } while (opcion != 0);
     }
 
-    private static void consultarCuenta(){
-        for(Cuenta cuenta: cuentas){
-            cuenta.mostrarEstodoCuentas();
-        }
-    }
-    private static void crearCuenta(){
-        NCuenta = Integer.toString((int)(Math.random()*10+1));
+    private static void crearCuenta() {
+        NCuenta += 1;
         Cuenta cuentaNueva = null;
-        System.out.println("Ingrese el tipo de cuenta que decea Crear"+
-                          "\n1. Cuetnta Corriente"+
-                          "\n2. Caja de Ahorro"+
-                          "\n0. Salir");
+        System.out.println("Ingrese el tipo de cuenta que decea Crear"
+                + "\n1. Cuetnta Corriente"
+                + "\n2. Caja de Ahorro"
+                + "\n0. Salir");
         int seleccionCueta = Integer.parseInt(leer.nextLine().trim());
         System.out.println("Ingrese Nombre y Apellido para crear la cuenta: \n");
         cuenta = leer.nextLine();
         System.out.println("Ingrese el Saldo Inicial de la cuenta: ");
         saldoInicial = Double.parseDouble(leer.nextLine().trim());
-        switch (seleccionCueta){
+        switch (seleccionCueta) {
             case 1:
                 cuentaNueva = new cuentaCorriente(NCuenta, cuenta, saldoInicial);
                 break;
-            case 2: 
+            case 2:
                 cuentaNueva = new cuentaAhorro(NCuenta, cuenta, saldoInicial);
                 break;
             case 0:
-                   //retorceder al menu
+                //retorceder al menu
                 break;
             default:
                 System.out.println("Opcion Invalida, intente Nuevamente");
         }
+        cuentas.add(cuentaNueva);
     }
-    
-    private static void realizarTransaccio(){
-        int NCuenta = 0;
+
+    private static void realizarTransaccio() {
         Transaccion transaccion = null;
-        System.out.println("Elija el tipo de Transaccion a Realizar: "+
-                         "\n1. Deposito"+
-                         "\n2. Extraccion"+
-                         "\n0. Salir");
+        System.out.println("Elija el tipo de Transaccion a Realizar: "
+                + "\n1. Deposito"
+                + "\n2. Extraccion"
+                + "\n0. Salir");
         int seleccion = Integer.parseInt(leer.nextLine().trim());
         System.out.println("Ingrese el numero de Cuenta: ");
         String NroCuenta = leer.nextLine().trim();
         System.out.println("Ingrese el Monto de la Transaccion: ");
         double monto = Double.parseDouble(leer.nextLine().trim());
-        switch (seleccion){
+        switch (seleccion) {
             case 1:
                 transaccion = new Deposito(monto);
                 break;
@@ -115,14 +110,22 @@ public class Banco {
             default:
                 System.out.println("Opcion Invalida, Intente Nuevamente");
         }
-        for(int i =0; i < cuentas.size(); i++){
+        for (int i = 0; i < cuentas.size(); i++) {
             Cuenta Cuentas = cuentas.get(i);
-            if(Cuentas.getNCuenta().equals(NroCuenta)){
+            if (Cuentas.getNCuenta().equals(NroCuenta)) {
                 Cuentas.agregarTransaccion(transaccion);
+                System.out.println(Cuentas);
                 break;
-            }else{
-                System.out.println("El Bunero de Cuenta que Acabas de Ingresar NO EXISTE");
+            } else {
+                System.out.println("El Nunero de Cuenta que Acabas de Ingresar NO EXISTE");
             }
+        }
+    }
+    private static void consultarCuenta() {
+        System.out.print("Creo que hasta aca esta funcionando ");
+        for (Cuenta cuenta : cuentas) { 
+            System.out.println("Para saber si entra o no en el For esta cosa");
+            cuenta.mostrarEstodoCuentas();
         }
     }
 }
