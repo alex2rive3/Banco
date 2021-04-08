@@ -40,10 +40,10 @@ public class cuentaAhorro extends Cuenta {
     }
 
     @Override
-    public void mostrarEstodoCuentas() {
+    public void mostrarEstadoCuentas() {
         System.out.println("Nro. de Cuenta: " + this.getNCuenta()+
-                            "Cliente: " + this.getCliente() +
-                            "Monto: " + getMonto()+"\n");
+                            "\nCliente: " + this.getCliente() +
+                            "\nMonto: " + getMonto()+"\n");
         if(transacciones.size()>0){
            System.out.println("Las transacciones de las cuentas fueron las siguientes: ");
            //se iteran todas las transacciones que se encuentran en el array se van mostrando 

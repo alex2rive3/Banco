@@ -48,5 +48,5 @@ public abstract class Cuenta {
 
     public abstract void agregarTransaccion(Transaccion transaccion);
 
-    public abstract void mostrarEstodoCuentas();
+    public abstract void mostrarEstadoCuentas();
 }

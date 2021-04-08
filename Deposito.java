@@ -22,7 +22,7 @@ public class Deposito extends Transaccion {
 
     @Override
     public void mostrar() {
-        System.out.print("Se Deposito en la Cuenta " + getMonto() + "$");
+        System.out.print("Se ha Depositado " + getMonto() + "$");
     }
 
 }
